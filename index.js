@@ -46,6 +46,13 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
           text: "これはこれは"
         }));
       }
+      if (event.message.text == "Hello"){
+        // replyMessage()で返信し、そのプロミスをevents_processedに追加。
+        events_processed.push(bot.replyMessage(event.replyToken, {
+          type: "text",
+          text: "Hello!!!"
+        }));
+      }
     }
   });
 
